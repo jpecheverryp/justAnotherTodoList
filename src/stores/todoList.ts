@@ -17,10 +17,10 @@ export const useTodoList = defineStore('todoList', {
       }
       this.items.push(todo)
     },
-    // completeTodo(id: number): void {
-    //   const todoIndex: number = todos.value.findIndex(todo => todo.id === id)
-    //   todos.value[todoIndex].done = true
-    // },
+    completeTodo(id: number): void {
+      const todoIndex: number = this.items.findIndex(todo => todo.id === id)
+      this.items[todoIndex].done = true
+    },
     // deleteTodo(id: number): void {
     //   const todoIndex: number = todos.value.findIndex(todo => todo.id === id)
     //   todos.value.splice(todoIndex, 1)

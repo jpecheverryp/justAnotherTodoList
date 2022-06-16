@@ -48,7 +48,7 @@ const deleteTodo = (id: number): void => {
   <ul>
     <li v-for="todoItem in storedList.items">
       {{ todoItem.text }}
-      <button @click="completeTodo(todoItem.id)">Complete</button>
+      <button @click="storedList.completeTodo(todoItem.id)">Complete</button>
       <button @click="deleteTodo(todoItem.id)">Delete</button>
     </li>
   </ul>
