@@ -46,7 +46,7 @@ const deleteTodo = (id: number): void => {
     <input type="submit" value="Add">
   </form>
   <ul>
-    <li v-for="todoItem in todos">
+    <li v-for="todoItem in storedList.items">
       {{ todoItem.text }}
       <button @click="completeTodo(todoItem.id)">Complete</button>
       <button @click="deleteTodo(todoItem.id)">Delete</button>
