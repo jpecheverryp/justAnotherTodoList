@@ -1,12 +1,16 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import type { Ref } from 'vue';
+import { useTodoList } from '@/stores/todoList'
 
 export interface Todo {
   id: number;
   text: string;
   done: boolean;
 }
+
+const storedList = useTodoList()
+
 // Id counter
 const nextId: Ref<number> = ref(0)
 
@@ -40,6 +44,7 @@ const deleteTodo = (id: number): void => {
 
 <template>
   <pre>{{ todos }}</pre>
+  <pre>{{ storedList }}</pre>
   <h1>Just Another Todo List</h1>
   <form @submit.prevent="addTodo">
     <input v-model="todoInput" type="text">
