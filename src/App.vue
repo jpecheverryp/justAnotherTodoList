@@ -24,7 +24,10 @@ const addTodo = () => {
 const completeTodo = (id) => {
   const todoIndex = todos.value.findIndex(todo => todo.id === id)
   todos.value[todoIndex].done = true
-
+}
+const deleteTodo = (id) => {
+  const todoIndex = todos.value.findIndex(todo => todo.id === id)
+  todos.value.splice(todoIndex, 1)
 }
 
 </script>
@@ -38,7 +41,9 @@ const completeTodo = (id) => {
   </form>
   <ul>
     <li v-for="todoItem in todos">
-      {{ todoItem.text }} <button @click="completeTodo(todoItem.id)">Complete</button> <button>Delete</button>
+      {{ todoItem.text }}
+      <button @click="completeTodo(todoItem.id)">Complete</button>
+      <button @click="deleteTodo(todoItem.id)">Delete</button>
     </li>
   </ul>
 </template>
