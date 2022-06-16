@@ -21,9 +21,9 @@ export const useTodoList = defineStore('todoList', {
       const todoIndex: number = this.items.findIndex(todo => todo.id === id)
       this.items[todoIndex].done = true
     },
-    // deleteTodo(id: number): void {
-    //   const todoIndex: number = todos.value.findIndex(todo => todo.id === id)
-    //   todos.value.splice(todoIndex, 1)
-    // }
+    deleteTodo(id: number): void {
+      const todoIndex: number = this.items.findIndex(todo => todo.id === id)
+      this.items.splice(todoIndex, 1)
+    }
   }
 })
