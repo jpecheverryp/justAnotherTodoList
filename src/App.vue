@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
+// Id counter
+const nextId = ref(0)
+
 // Form Data
 const todoInput = ref("")
 
@@ -10,6 +13,7 @@ const todos = ref([])
 // List Methods
 const addTodo = () => {
   const todo = {
+    id: nextId.value++,
     text: todoInput.value,
     done: false
   }
