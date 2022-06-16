@@ -7,7 +7,11 @@ export interface Todo {
 }
 
 export const useTodoList = defineStore('todoList', {
-  state: () => ({ items: [], nextId: 0 }),
+  state: () => (
+    {
+      items: <Todo[]>[],
+      nextId: 0
+    }),
   actions: {
     addTodo(todoText: string): void {
       const todo: Todo = {
