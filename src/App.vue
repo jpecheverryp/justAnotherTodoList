@@ -1,18 +1,24 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import type { Ref } from 'vue';
 
+export interface Todo {
+  id: number;
+  text: string;
+  done: boolean;
+}
 // Id counter
-const nextId = ref(0)
+const nextId: Ref<number> = ref(0)
 
 // Form Data
-const todoInput = ref("")
+const todoInput: Ref<string> = ref("")
 
 // List Data
-const todos = ref([])
+const todos: Ref<Todo[]> = ref([])
 
 // List Methods
-const addTodo = () => {
-  const todo = {
+const addTodo = (): void => {
+  const todo: Todo = {
     id: nextId.value++,
     text: todoInput.value,
     done: false
@@ -21,12 +27,12 @@ const addTodo = () => {
   todoInput.value = ""
 }
 
-const completeTodo = (id) => {
-  const todoIndex = todos.value.findIndex(todo => todo.id === id)
+const completeTodo = (id: number): void => {
+  const todoIndex: number = todos.value.findIndex(todo => todo.id === id)
   todos.value[todoIndex].done = true
 }
-const deleteTodo = (id) => {
-  const todoIndex = todos.value.findIndex(todo => todo.id === id)
+const deleteTodo = (id: number): void => {
+  const todoIndex: number = todos.value.findIndex(todo => todo.id === id)
   todos.value.splice(todoIndex, 1)
 }
 
