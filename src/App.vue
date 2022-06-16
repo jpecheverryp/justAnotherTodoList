@@ -22,12 +22,7 @@ const todos: Ref<Todo[]> = ref([])
 
 // List Methods
 const addTodo = (): void => {
-  const todo: Todo = {
-    id: nextId.value++,
-    text: todoInput.value,
-    done: false
-  }
-  todos.value.push(todo)
+  storedList.addTodo(todoInput.value)
   todoInput.value = ""
 }
 
@@ -46,7 +41,7 @@ const deleteTodo = (id: number): void => {
   <pre>{{ todos }}</pre>
   <pre>{{ storedList }}</pre>
   <h1>Just Another Todo List</h1>
-  <form @submit.prevent="addTodo">
+  <form @submit.prevent="addTodo()">
     <input v-model="todoInput" type="text">
     <input type="submit" value="Add">
   </form>
