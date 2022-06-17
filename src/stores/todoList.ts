@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-
+import { useStorage } from '@vueuse/core';
 export interface Todo {
   id: number;
   text: string;
@@ -9,8 +9,8 @@ export interface Todo {
 export const useTodoList = defineStore('todoList', {
   state: () => (
     {
-      items: <Todo[]>[],
-      nextId: 0
+      items: useStorage('todos', <Todo[]>[]),
+      nextId: useStorage('next-id', 0)
     }),
   actions: {
     addTodo(todoText: string): void {
